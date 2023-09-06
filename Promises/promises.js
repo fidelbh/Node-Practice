@@ -178,13 +178,17 @@ promiseAll(promises)
 
 //Task 2
 function promiseAllSettled(promises) {
-  return Promise.all(
-    promises.map((promise) =>
+  const settledPromises = [];
+
+  for (const promise of promises) {
+    settledPromises.push(
       promise
         .then((value) => ({ status: "fulfilled", value }))
         .catch((reason) => ({ status: "rejected", reason }))
-    )
-  );
+    );
+  }
+
+  return Promise.all(settledPromises);
 }
 
 // Example
