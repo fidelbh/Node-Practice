@@ -188,7 +188,7 @@ function promiseAllSettled(promises) {
     );
   }
 
-  return Promise.all(settledPromises);
+  return promiseAll(settledPromises);
 }
 
 // Example
